@@ -5,12 +5,5 @@
     <artifactId>solemne2</artifactId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
-  <artifactId>solemne2.datos</artifactId>
-  <dependencies>
-  	<dependency>
-  		<groupId>com.oracle</groupId>
-  		<artifactId>ojdbc</artifactId>
-  		<version>11.2.0.3</version>
-  	</dependency>
-  </dependencies>
+  <artifactId>solemne2.web</artifactId>
 </project>

@@ -6,5 +6,7 @@
   <packaging>pom</packaging>
   <modules>
   	<module>solemne2.datos</module>
+  	<module>solemne2.bd</module>
+  	<module>solemne2.web</module>
   </modules>
 </project>
