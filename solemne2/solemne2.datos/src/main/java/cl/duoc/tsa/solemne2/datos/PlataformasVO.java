@@ -5,6 +5,7 @@ public class PlataformasVO {
 	private int id_plataforma;
 	private String nombre_plataforma;
 	private String descripcion;
+	private char log_estado;
 	
 	public int getId_plataforma() {
 		return id_plataforma;
@@ -30,6 +31,14 @@ public class PlataformasVO {
 		this.descripcion = descripcion;
 	}
 
+	public char getLog_estado() {
+		return log_estado;
+	}
+
+	public void setLog_estado(char log_estado) {
+		this.log_estado = log_estado;
+	}
+
 	public PlataformasVO() {
 	}
 	
@@ -38,6 +47,7 @@ public class PlataformasVO {
 		this.id_plataforma = id_plataforma;
 		this.nombre_plataforma = nombre_plataforma;
 		this.descripcion = descripcion;
+		this.log_estado = log_estado;
 	}
 	
 	

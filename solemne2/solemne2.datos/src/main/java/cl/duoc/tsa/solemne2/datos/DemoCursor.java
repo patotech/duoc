@@ -16,7 +16,7 @@ public class DemoCursor {
 	public static void main(String[] args) throws SQLException {
 		DriverManager.registerDriver( new OracleDriver() );
 		
-		Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","solemne2","solemne2");
+		Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.1.105:1521:orcl","tsa","tsa");
 
 		ServicioDatosImpl impl = new ServicioDatosImpl();
 		List<LenguajeVO> lista = impl.getLenguajes(conn);

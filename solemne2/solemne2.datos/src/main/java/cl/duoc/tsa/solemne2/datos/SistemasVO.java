@@ -5,6 +5,8 @@ public class SistemasVO {
 	private int id_sistema;
 	private String descripcion;
 	
+	/*   */
+	
 	public int getId_sistema() {
 		return id_sistema;
 	}

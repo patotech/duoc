@@ -20,7 +20,7 @@ public class ServicioDatosImpl implements ServicioDatos {
 		ResultSet result = null;
 		try
 		{
-			cstmt = conn.prepareCall("{call lista_usuarios(?)}");
+			cstmt = conn.prepareCall("{call p_lista_usuarios(?)}");
 			cstmt.registerOutParameter(1, OracleTypes.CURSOR);
 			cstmt.execute();
 			result = ((OracleCallableStatement)cstmt).getCursor(1);
@@ -55,7 +55,7 @@ public class ServicioDatosImpl implements ServicioDatos {
 		ResultSet result = null;
 		try
 		{
-			cstmt = conn.prepareCall("{call lista_plataformas(?)}");
+			cstmt = conn.prepareCall("{call p_lista_plataforma(?)}");
 			cstmt.registerOutParameter(1, OracleTypes.CURSOR);
 			cstmt.execute();
 			result = ((OracleCallableStatement)cstmt).getCursor(1);
@@ -65,6 +65,7 @@ public class ServicioDatosImpl implements ServicioDatos {
 				objTemp.setId_plataforma( result.getInt("id_plataforma") );
 				objTemp.setNombre_plataforma( result.getString("nombre_plataforma") );
 				objTemp.setDescripcion( result.getString("descripcion") );
+				objTemp.setLog_estado( result.getString("log_estado").charAt(0) );
 				lista.add(objTemp);
 			}
 		}
@@ -89,7 +90,7 @@ public class ServicioDatosImpl implements ServicioDatos {
 		ResultSet result = null;
 		try
 		{
-			cstmt = conn.prepareCall("{call lista_lenguaje(?)}");
+			cstmt = conn.prepareCall("{call p_lista_lenguaje(?)}");
 			cstmt.registerOutParameter(1, OracleTypes.CURSOR);
 			cstmt.execute();
 			result = ((OracleCallableStatement)cstmt).getCursor(1);
@@ -122,7 +123,7 @@ public class ServicioDatosImpl implements ServicioDatos {
 		ResultSet result = null;
 		try
 		{
-			cstmt = conn.prepareCall("{call lista_sistemas(?)}");
+			cstmt = conn.prepareCall("{call p_lista_sistema(?)}");
 			cstmt.registerOutParameter(1, OracleTypes.CURSOR);
 			cstmt.execute();
 			result = ((OracleCallableStatement)cstmt).getCursor(1);
@@ -155,7 +156,7 @@ public class ServicioDatosImpl implements ServicioDatos {
 		ResultSet result = null;
 		try
 		{
-			cstmt = conn.prepareCall("{call lista_aplicaciones(?)}");
+			cstmt = conn.prepareCall("{call p_lista_aplicaciones(?)}");
 			cstmt.registerOutParameter(1, OracleTypes.CURSOR);
 			cstmt.execute();
 			result = ((OracleCallableStatement)cstmt).getCursor(1);
@@ -189,7 +190,7 @@ public class ServicioDatosImpl implements ServicioDatos {
 		ResultSet result = null;
 		try
 		{
-			cstmt = conn.prepareCall("{call lista_detalle_apli(?)}");
+			cstmt = conn.prepareCall("{call p_lista_detalle_apli(?)}");
 			cstmt.registerOutParameter(1, OracleTypes.CURSOR);
 			cstmt.execute();
 			result = ((OracleCallableStatement)cstmt).getCursor(1);
@@ -204,6 +205,7 @@ public class ServicioDatosImpl implements ServicioDatos {
 				objTemp.setRut_especialista( result.getInt("rut_especialista") );
 				objTemp.setRut_dueno( result.getInt("rut_dueno") );
 				objTemp.setBase_de_datos( result.getString("base_de_datos").charAt(0) );
+				objTemp.setLog_estado( result.getString("log_estado").charAt(0) );
 				lista.add(objTemp);
 			}
 		}
@@ -228,7 +230,7 @@ public class ServicioDatosImpl implements ServicioDatos {
 		ResultSet result = null;
 		try
 		{
-			cstmt = conn.prepareCall("{call lista_registro_log(?)}");
+			cstmt = conn.prepareCall("{call p_lista_registro_log(?)}");
 			cstmt.registerOutParameter(1, OracleTypes.CURSOR);
 			cstmt.execute();
 			result = ((OracleCallableStatement)cstmt).getCursor(1);
@@ -429,7 +431,7 @@ public class ServicioDatosImpl implements ServicioDatos {
 		CallableStatement cstmt = null;
 		try
 		{
-			cstmt = conn.prepareCall("{call P_inserta_o_actualiza(?,?,?,?,?,?,?,?,?,?,?,?)}");
+			cstmt = conn.prepareCall("{call P_ingresa_o_actualiza(?,?,?,?,?,?,?,?,?,?,?,?)}");
 			cstmt.setInt(1, objAplicacion.getId_aplicacion());
 			cstmt.setString(2, objAplicacion.getDescripcion());
 			cstmt.setInt(3, objAplicacion.getId_sistema());
