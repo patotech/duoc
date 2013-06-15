@@ -203,7 +203,7 @@ public class ServicioDatosImpl implements ServicioDatos {
 				objTemp.setDescripcion( result.getString("descripcion") );
 				objTemp.setRut_especialista( result.getInt("rut_especialista") );
 				objTemp.setRut_dueno( result.getInt("rut_dueno") );
-				objTemp.setBase_de_datos( result.getString("base_de_datos") );
+				objTemp.setBase_de_datos( result.getString("base_de_datos").charAt(0) );
 				lista.add(objTemp);
 			}
 		}
