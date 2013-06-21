@@ -48,7 +48,7 @@ public class ServicioDatosImpl implements ServicioDatos {
 		return lista;
 	}
 
-	public List<PlataformasVO> getPlataformas(Connection conn) {
+	public List<PlataformasVO> getPlataforma(Connection conn) {
 		final List<PlataformasVO> lista = new ArrayList<PlataformasVO>();
 		
 		CallableStatement cstmt = null;
@@ -451,7 +451,7 @@ public class ServicioDatosImpl implements ServicioDatos {
 			}
 			catch( Exception e )
 			{
-				System.out.println("Error al insertar detalle de aplicación");
+				System.out.println("Error al insertar detalle de aplicaciï¿½n");
 				e.printStackTrace( System.out );
 			}
 		}
@@ -504,5 +504,35 @@ public class ServicioDatosImpl implements ServicioDatos {
 		return result;
 	}
 
-	
+	/* Elimina detalle de aplicacion  */
+	public boolean eliDetalleApli(Connection conn, DetalleApliVO objDetalleApli) {
+		boolean result = false;
+		CallableStatement cstmt = null;
+		try
+		{
+			cstmt = conn.prepareCall("{call P_elimina(?)}");
+			cstmt.setInt(1, objDetalleApli.getId_det());
+			try
+			{
+				cstmt.executeUpdate();
+				result = true;
+			}
+			catch( Exception e )
+			{
+				System.out.println("Error al eliminar detalle de aplicaciÃ³n");
+				e.printStackTrace( System.out );
+			}
+		}
+		catch( Exception e )
+		{
+			System.out.println("Error al eliminar detalle de aplicacion");
+			e.printStackTrace( System.out );
+		}
+		finally
+		{
+			if( cstmt != null ) try { cstmt.close(); } catch (Exception e) {}
+		}
+
+		return result;
+	}	
 }

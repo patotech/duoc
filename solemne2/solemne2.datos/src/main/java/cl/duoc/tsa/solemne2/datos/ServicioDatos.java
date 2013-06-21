@@ -3,8 +3,6 @@ package cl.duoc.tsa.solemne2.datos;
 import java.sql.*;
 import java.util.*;
 
-import pruebas.Conexion;
-
 public interface ServicioDatos {
 
 	
@@ -15,4 +13,6 @@ public interface ServicioDatos {
 	public List<RegistroLogVO> getRegistroLog( Connection conn );
 	public List<SistemasVO> getSistemas( Connection conn );
 	public List<UsuariosVO> getUsuarios( Connection conn );
+	public boolean insDetalleApli(Connection conn, AplicacionesVO objAplicacion, DetalleApliVO objDetalleApli);
+	public boolean eliDetalleApli(Connection conn, DetalleApliVO objDetalleApli);
 }

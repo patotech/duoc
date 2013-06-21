@@ -30,8 +30,8 @@ public class AplicacionesVO {
 		this.id_sistema = id_sistema;
 	}
 	
-	public AplicacionesVO() {
+	public AplicacionesVO()
+	{
 	}
-	
 
 }

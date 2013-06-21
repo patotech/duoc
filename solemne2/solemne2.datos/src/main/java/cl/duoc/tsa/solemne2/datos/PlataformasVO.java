@@ -43,7 +43,7 @@ public class PlataformasVO {
 	}
 	
 	public PlataformasVO(int id_plataforma, String nombre_plataforma,
-			String descripcion) {
+			String descripcion, char log_estado) {
 		this.id_plataforma = id_plataforma;
 		this.nombre_plataforma = nombre_plataforma;
 		this.descripcion = descripcion;

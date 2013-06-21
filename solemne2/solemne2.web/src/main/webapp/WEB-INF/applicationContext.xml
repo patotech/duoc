@@ -1,0 +1,17 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd ">
+ 
+	<bean class="cl.duoc.tsa.solemne2.spring.SpringApplicationContext"/>
+ 
+    <bean id="dataSource" class="oracle.jdbc.pool.OracleDataSource">
+    	<property name="dataSourceName" value="tsaDataSource"/>
+        <property name="URL" value="#{ systemProperties['jdbc.url'] }"/>
+        <property name="user" value="#{ systemProperties['jdbc.username'] }"/>
+        <property name="password" value="#{ systemProperties['jdbc.password'] }"/>
+    </bean>
+     <!--
+     -Djdbc.url="jdbc:oracle:thin:@192.168.1.105:1521:orcl" -Djdbc.username=tsa -Djdbc.password=tsa 
+      -->
+</beans>

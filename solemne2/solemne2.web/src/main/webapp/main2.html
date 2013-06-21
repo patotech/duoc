@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Solemne 2 - Taller de Desarrollo de Aplicaciones</title>
+
+        <!-- ** CSS ** -->
+        <!-- base library -->
+        <link rel="stylesheet" type="text/css" href="extjs/resources/css/ext-all.css" />
+ 
+        <!-- ** Javascript ** -->
+        <script type="text/javascript" src="extjs/ext-all-debug.js"></script>
+        
+        <script type="text/javascript">
+	        Ext.Loader.setPath({
+	            'Duoc.solemne2': 'app2',
+	            'Desktop': 'app2'
+	        });
+	        
+	        Ext.require(['Desktop.App']);
+	        
+	        var appStores = ['lenguajeStore', 'plataformaStore', 'sistemaStore', 'usuarioStore'];
+	        
+	        var desktopApp = null;
+	        Ext.onReady(function () {
+	            Ext.Msg.wait("Por favor espere mientras se carga la informacion");
+	            
+	            var lenguajes = Ext.create('Duoc.solemne2.store.LenguajeStore');
+	            var plataformas = Ext.create('Duoc.solemne2.store.PlataformaStore');
+	            var sistemas = Ext.create('Duoc.solemne2.store.SistemaStore');
+	            var usuarios = Ext.create('Duoc.solemne2.store.UsuarioStore');
+	            
+	            waitForStores();
+	        });
+	        
+	        function waitForStores()
+	        {
+	            if ( !checkStores() ) {
+	               setTimeout( waitForStores, 100 );
+	            }
+	            else {
+	            	doRenderApp();
+	            }
+	        }
+	        
+	        function checkStores() {
+	            var loaded = true;
+	            Ext.each(appStores, function(storeId) {
+	                var store = Ext.StoreManager.lookup(storeId);
+	                if (store.isLoading()) {
+	                    loaded = false;
+	                }
+	            });
+	            return loaded;
+	        }
+	        
+	        function doRenderApp()
+	        {
+	        	desktopApp = new Desktop.App();
+	        }
+        </script>
+	</head>
+	<body>
+
+	</body>
+</html>

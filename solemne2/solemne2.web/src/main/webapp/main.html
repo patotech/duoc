@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Solemne 2 - Taller de Desarrollo de Aplicaciones</title>
+
+        <!-- ** CSS ** -->
+        <!-- base library -->
+        <link rel="stylesheet" type="text/css" href="app/css/desktop.css" />
+        <link rel="stylesheet" type="text/css" href="extjs/resources/css/ext-all.css" />
+ 
+        <!-- ** Javascript ** -->
+        <script type="text/javascript" src="extjs/ext-all-debug.js"></script>
+        
+        <script type="text/javascript">
+	        Ext.Loader.setPath({
+	            'Duoc.solemne2.desktop': 'app/desktop',
+	            'Desktop': 'app'
+	        });
+	        
+	        Ext.require(['Desktop.App']);
+	        
+	        var desktopApp;
+	        Ext.onReady(function () {
+	            var desktopApp = new Desktop.App();
+	        });
+        </script>
+	</head>
+	<body>
+
+	</body>
+</html>
